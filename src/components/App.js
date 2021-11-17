@@ -3,23 +3,26 @@ import { connect } from 'react-redux';
 import '../App.css';
 import { handleReceiveData } from '../actions/shared';
 import LoadingBar from 'react-redux-loading-bar';
+import Login from './Login';
 
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleReceiveData());
   }
   render() {
+    const { authUser } = this.props;
+
     return (
-      <div className='App'>
-        <LoadingBar />
+      <div className='container-sm App'>
+        {authUser === null ? <Login /> : <LoadingBar />}
       </div>
     );
   }
 }
 
-function mapStateToProps(authUser) {
+function mapStateToProps({ authUser }) {
   return {
-    loading: authUser === null,
+    authUser,
   };
 }
 
