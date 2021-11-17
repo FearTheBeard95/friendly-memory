@@ -4,6 +4,7 @@ import '../App.css';
 import { handleReceiveData } from '../actions/shared';
 import LoadingBar from 'react-redux-loading-bar';
 import Login from './Login';
+import Nav from './Nav';
 
 class App extends Component {
   componentDidMount() {
@@ -14,7 +15,14 @@ class App extends Component {
 
     return (
       <div className='container-sm App'>
-        {authUser === null ? <Login /> : <LoadingBar />}
+        {authUser === null ? (
+          <Login />
+        ) : (
+          <div>
+            <LoadingBar />
+            <Nav />
+          </div>
+        )}
       </div>
     );
   }
