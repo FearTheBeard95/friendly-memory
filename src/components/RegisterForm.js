@@ -26,8 +26,10 @@ export class RegisterForm extends Component {
   handleOnSubmit = () => {
     const { dispatch } = this.props;
     const { username, fullName } = this.state;
-    dispatch(handleCreateUser(username, fullName));
-    dispatch(setAuthUser(username));
+    setTimeout(() => {
+      dispatch(handleCreateUser(username, fullName));
+      dispatch(setAuthUser(username));
+    }, 600);
   };
   render() {
     const { username, fullName } = this.state;

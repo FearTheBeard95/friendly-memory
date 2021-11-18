@@ -5,6 +5,8 @@ import { handleReceiveData } from '../actions/shared';
 import LoadingBar from 'react-redux-loading-bar';
 import Login from './Login';
 import Nav from './Nav';
+import HomePage from './Home';
+import { Divider } from 'semantic-ui-react';
 
 class App extends Component {
   componentDidMount() {
@@ -21,6 +23,9 @@ class App extends Component {
           <div>
             <LoadingBar />
             <Nav />
+            <Divider />
+            {/* Render pages here */}
+            <HomePage />
           </div>
         )}
       </div>

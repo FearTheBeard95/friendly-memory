@@ -16,7 +16,9 @@ class LoginForm extends Component {
   onSubmit = () => {
     const { dispatch } = this.props;
     const { selectedUser } = this.state;
-    dispatch(setAuthUser(selectedUser));
+    setTimeout(() => {
+      dispatch(setAuthUser(selectedUser));
+    }, 500);
   };
   render(props) {
     const { users } = this.props;
