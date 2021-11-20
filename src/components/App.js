@@ -5,6 +5,7 @@ import { handleReceiveData } from '../actions/shared';
 import LoadingBar from 'react-redux-loading-bar';
 import Login from './Login';
 import Nav from './Nav';
+import PollQuestion from './PollQuestion';
 import HomePage from './Home';
 import { Divider } from 'semantic-ui-react';
 
@@ -25,7 +26,7 @@ class App extends Component {
             <Nav />
             <Divider />
             {/* Render pages here */}
-            <HomePage />
+            <PollQuestion />
           </div>
         )}
       </div>

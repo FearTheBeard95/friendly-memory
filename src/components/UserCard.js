@@ -7,7 +7,7 @@ import Question from './Question';
 
 class UserCard extends Component {
   render() {
-    const { author, question } = this.props;
+    const { author, question, isQuestion } = this.props;
     return (
       <Card.Group centered>
         <Image avatar src={logo} size='tiny' />
@@ -16,10 +16,16 @@ class UserCard extends Component {
           <Card.Content>
             Would You Rather
             <br />
-            <Question question={question} tease={this.props.teaser} />
+            <Question
+              question={question}
+              tease={this.props.teaser}
+              isQuestion={isQuestion}
+            />
           </Card.Content>
           <Card.Content extra>
-            {this.props.answered ? (
+            {isQuestion ? (
+              <Button color='twitter'>Submit</Button>
+            ) : this.props.answered ? (
               <Button color='twitter'>Results</Button>
             ) : (
               <Button color='twitter'>View</Button>
