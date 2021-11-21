@@ -8,12 +8,7 @@ class PollQuestion extends Component {
     console.log(authUser);
     return (
       <div>
-        <UserCard
-          poll='8xf0y6ziyjabvozdd253nd'
-          answered={false}
-          teaser={true}
-          isQuestion={true}
-        />
+        <UserCard answered={false} teaser={true} />
       </div>
     );
   }

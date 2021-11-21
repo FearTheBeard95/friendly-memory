@@ -8,6 +8,7 @@ import Nav from './Nav';
 import PollQuestion from './PollQuestion';
 import HomePage from './Home';
 import { Divider } from 'semantic-ui-react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   componentDidMount() {
@@ -17,19 +18,26 @@ class App extends Component {
     const { authUser } = this.props;
 
     return (
-      <div className='container-sm App'>
-        {authUser === null ? (
-          <Login />
-        ) : (
-          <div>
-            <LoadingBar />
-            <Nav />
-            <Divider />
-            {/* Render pages here */}
-            <PollQuestion />
-          </div>
-        )}
-      </div>
+      <Router>
+        <div className='container-sm App'>
+          {authUser === null ? (
+            <Login />
+          ) : (
+            <div>
+              <LoadingBar />
+              <Nav />
+              <Divider />
+              {/* Render pages here */}
+              <Switch>
+                <Route exact path='/' component={HomePage} />
+                <Route b n n /. path='/add' />
+                <Route path='/leaderboard' />
+                <Route path='/question/:id' component={PollQuestion} />
+              </Switch>
+            </div>
+          )}
+        </div>
+      </Router>
     );
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { Button, Image } from 'semantic-ui-react';
 import { Card } from 'semantic-ui-react';
 import logo from '../logo.svg';
@@ -26,9 +27,21 @@ class UserCard extends Component {
             {isQuestion ? (
               <Button color='twitter'>Submit</Button>
             ) : this.props.answered ? (
-              <Button color='twitter'>Results</Button>
+              <Button
+                color='twitter'
+                as={NavLink}
+                to={`/pollresult/${question.id}`}
+              >
+                Results
+              </Button>
             ) : (
-              <Button color='twitter'>View</Button>
+              <Button
+                color='twitter'
+                as={NavLink}
+                to={`/question/${question.id}`}
+              >
+                View
+              </Button>
             )}
           </Card.Content>
         </Card>
@@ -41,11 +54,11 @@ function mapStateToProps({ authUser, users, questions }, { match, poll }) {
   let question;
   if (poll !== undefined) {
     question = questions[poll];
+  } else {
+    console.log('match', match);
+    const { id } = match.params;
+    question = questions[id];
   }
-  //   else {
-  //     const { id } = match.params;
-  //     question = questions[id];
-  //   }
   const author = users[question.author];
   return {
     question,

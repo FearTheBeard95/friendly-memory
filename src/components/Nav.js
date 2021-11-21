@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { Button, Menu, Header, Image } from 'semantic-ui-react';
 import { setAuthUser } from '../actions/authUser';
 import logo from '../logo.svg';
@@ -24,16 +25,23 @@ class Nav extends Component {
             name='home'
             active={activeItem === 'home'}
             onClick={this.handleItemClick}
+            as={NavLink}
+            to='/'
+            exact
           />
           <Menu.Item
             name='new poll'
             active={activeItem === 'new poll'}
             onClick={this.handleItemClick}
+            as={NavLink}
+            to='/add'
           />
           <Menu.Item
             name='leaderboards'
             active={activeItem === 'leaderboards'}
             onClick={this.handleItemClick}
+            as={NavLink}
+            to='/leaderboards'
           />
           <Menu.Menu position='right'>
             <Menu.Item name='logout'>
