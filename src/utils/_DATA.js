@@ -199,7 +199,7 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
         },
       };
 
-      res();
+      res({ users, questions });
     }, 500);
   });
 }
@@ -210,10 +210,13 @@ export function _saveUser({ id, name }) {
       users = {
         ...users,
         [id]: {
+          id,
           name,
+          avatarURL: null,
+          answers: {},
         },
       };
-      res();
+      res(users);
     }, 500);
   });
 }

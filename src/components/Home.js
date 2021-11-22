@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Divider, List, Segment, Tab } from 'semantic-ui-react';
+import { handleReceiveData } from '../actions/shared';
 import UserCard from './UserCard';
 
 class HomePage extends Component {

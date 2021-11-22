@@ -8,7 +8,7 @@ class PollQuestion extends Component {
     console.log(authUser);
     return (
       <div>
-        <UserCard answered={false} teaser={true} />
+        <UserCard answered={false} teaser={true} match={this.props.match} />
       </div>
     );
   }

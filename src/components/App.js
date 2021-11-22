@@ -30,7 +30,7 @@ class App extends Component {
               {/* Render pages here */}
               <Switch>
                 <Route exact path='/' component={HomePage} />
-                <Route b n n /. path='/add' />
+                <Route path='/add' />
                 <Route path='/leaderboard' />
                 <Route path='/question/:id' component={PollQuestion} />
               </Switch>
