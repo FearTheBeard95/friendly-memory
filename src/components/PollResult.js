@@ -6,7 +6,7 @@ class PollResults extends Component {
   render() {
     return (
       <div>
-        <UserCard answered={true} match={this.props.match} />
+        <UserCard match={this.props.match} type='Result' />
       </div>
     );
   }

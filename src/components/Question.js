@@ -7,88 +7,48 @@ class Question extends Component {
     answer: this.props.answer,
   };
   render() {
-    const { answer, isQuestion, disableOptions } = this.props;
+    const { disableOptions } = this.props;
     return (
       <div>
-        {!isQuestion ? (
-          <Segment size='massive'>
-            <Grid columns={2} stackable textAlign='center'>
-              <Divider vertical>Or</Divider>
-              <Grid.Row verticalAlign='middle'>
-                <Grid.Column>
-                  <p>
-                    {this.props.question.optionOne.text}{' '}
-                    {answer === 'optionOne' ? (
-                      <Icon name='check circle' corner='top right' />
-                    ) : null}
-                  </p>
-                </Grid.Column>
-                <Grid.Column>
-                  {this.props.tease ? (
-                    isQuestion ? (
-                      this.props.question.optionTwo.text
-                    ) : (
-                      <p>...</p>
-                    )
-                  ) : (
-                    <div>
-                      <p>
-                        {this.props.question.optionTwo.text}
-                        {answer === 'optionTwo' ? (
-                          <Icon name='check circle' corner='top right' />
-                        ) : null}
-                      </p>
-                    </div>
-                  )}
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
+        <Segment size='massive'>
+          <Segment>
+            <Button
+              color='twitter'
+              disabled={disableOptions}
+              onClick={() => {
+                this.props.setAnswer('optionOne');
+                this.setState({
+                  answer: 'optionOne',
+                });
+              }}
+              fluid
+            >
+              {this.props.question.optionOne.text}{' '}
+              {this.state.answer === 'optionOne' ? (
+                <Icon name='check circle' corner='top right' />
+              ) : null}
+            </Button>
           </Segment>
-        ) : (
-          <Segment size='massive'>
-            <Grid columns={2} stackable textAlign='center'>
-              <Divider vertical>Or</Divider>
-              <Grid.Row verticalAlign='middle'>
-                <Grid.Column>
-                  <Button
-                    color='twitter'
-                    disabled={disableOptions}
-                    onClick={() => {
-                      this.props.setAnswer('optionOne');
-                      this.setState({
-                        answer: 'optionOne',
-                      });
-                    }}
-                  >
-                    {this.props.question.optionOne.text}{' '}
-                    {this.state.answer === 'optionOne' ? (
-                      <Icon name='check circle' corner='top right' />
-                    ) : null}
-                  </Button>
-                </Grid.Column>
-                <Grid.Column>
-                  <div>
-                    <Button
-                      color='youtube'
-                      disabled={disableOptions}
-                      onClick={() => {
-                        this.props.setAnswer('optionTwo');
-                        this.setState({
-                          answer: 'optionTwo',
-                        });
-                      }}
-                    >
-                      {this.props.question.optionTwo.text}
-                      {this.state.answer === 'optionTwo' ? (
-                        <Icon name='check circle' corner='top right' />
-                      ) : null}
-                    </Button>
-                  </div>
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
+          <Divider horizontal>Or</Divider>
+          <Segment>
+            <Button
+              color='youtube'
+              disabled={disableOptions}
+              onClick={() => {
+                this.props.setAnswer('optionTwo');
+                this.setState({
+                  answer: 'optionTwo',
+                });
+              }}
+              fluid
+            >
+              {this.props.question.optionTwo.text}
+              {this.state.answer === 'optionTwo' ? (
+                <Icon name='check circle' corner='top right' />
+              ) : null}
+            </Button>
           </Segment>
-        )}
+        </Segment>
       </div>
     );
   }

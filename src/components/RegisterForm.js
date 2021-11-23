@@ -32,6 +32,7 @@ export class RegisterForm extends Component {
         handleCreateUser({
           id: username,
           name: fullName,
+          avatarURL: 'https://avatars.dicebear.com/api/croodles/newuser.svg',
         })
       );
     }, 600);

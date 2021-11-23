@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Button, Menu, Header, Image } from 'semantic-ui-react';
 import { setAuthUser } from '../actions/authUser';
-import logo from '../logo.svg';
 
 class Nav extends Component {
   state = { activeItem: 'home' };
@@ -52,7 +51,8 @@ class Nav extends Component {
           </Menu.Menu>
         </Menu>
         <Header as='h2' textAlign='left'>
-          <Image circular src={logo} /> {users[authUser].name}
+          <Image circular src={users[authUser].avatarURL} />
+          {users[authUser].name}
         </Header>
       </div>
     );
