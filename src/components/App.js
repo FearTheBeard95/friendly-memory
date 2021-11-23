@@ -6,6 +6,7 @@ import LoadingBar from 'react-redux-loading-bar';
 import Login from './Login';
 import Nav from './Nav';
 import PollQuestion from './PollQuestion';
+import PollResult from './PollResult';
 import HomePage from './Home';
 import { Divider } from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -33,6 +34,7 @@ class App extends Component {
                 <Route path='/add' />
                 <Route path='/leaderboard' />
                 <Route path='/question/:id' component={PollQuestion} />
+                <Route path='/pollresult/:id' component={PollResult} />
               </Switch>
             </div>
           )}
