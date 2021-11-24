@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
   Segment,
@@ -25,43 +25,48 @@ class LeaderBoard extends Component {
 }
 
 const Leader = (props) => (
-  <Segment>
-    <Label corner='right' icon='gem' color={props.color} />
-    <Grid padded textAlign='center'>
-      <Grid.Row>
-        <Grid.Column width={3} verticalAlign='middle' textAlign='center'>
-          <Image src={`${props.champion.avatarURL}`} size='large' />
-        </Grid.Column>
-        <Grid.Column width={6}>
-          <br />
-          <Header as='h3' textAlign='left'>
-            {props.champion.name}
-          </Header>
-          <Grid textAlign='left'>
-            <Grid.Column width={12}>Answered questions</Grid.Column>
-            <Grid.Column width={4}>{props.champion.answersCount}</Grid.Column>
-          </Grid>
+  <div>
+    <Segment>
+      <Label corner='right' icon='gem' color={props.color} />
+      <Grid padded textAlign='center'>
+        <Grid.Row>
+          <Grid.Column width={3} verticalAlign='middle' textAlign='center'>
+            <Image src={`${props.champion.avatarURL}`} size='large' />
+          </Grid.Column>
+          <Grid.Column width={6}>
+            <br />
+            <Header as='h3' textAlign='left'>
+              {props.champion.name}
+            </Header>
+            <Grid textAlign='left'>
+              <Grid.Column width={12}>Answered questions</Grid.Column>
+              <Grid.Column width={4}>{props.champion.answersCount}</Grid.Column>
+            </Grid>
+            <Divider />
+            <Grid textAlign='left'>
+              <Grid.Column width={12}>Created questions</Grid.Column>
+              <Grid.Column width={4}>
+                {props.champion.questionsCount}
+              </Grid.Column>
+            </Grid>
+          </Grid.Column>
           <Divider />
-          <Grid textAlign='left'>
-            <Grid.Column width={12}>Created questions</Grid.Column>
-            <Grid.Column width={4}>{props.champion.questionsCount}</Grid.Column>
-          </Grid>
-        </Grid.Column>
-        <Divider />
-        <Grid.Column width={4} textAlign='center'>
-          <br />
-          <Segment.Group>
-            <Header as='h5' block attached='top' content='Score' />
-            <Segment>
-              <Label circular color='green' size='big'>
-                {props.champion.sum}
-              </Label>
-            </Segment>
-          </Segment.Group>
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
-  </Segment>
+          <Grid.Column width={4} textAlign='center'>
+            <br />
+            <Segment.Group>
+              <Header as='h5' block attached='top' content='Score' />
+              <Segment>
+                <Label color='blue' size='big'>
+                  {props.champion.sum}
+                </Label>
+              </Segment>
+            </Segment.Group>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </Segment>
+    <br />
+  </div>
 );
 
 function mapStateToProps({ users }) {

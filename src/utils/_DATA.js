@@ -214,6 +214,7 @@ export function _saveUser({ id, name }) {
           name,
           avatarURL: 'https://avatars.dicebear.com/api/croodles/newuser.svg',
           answers: {},
+          questions: [],
         },
       };
       res(users);

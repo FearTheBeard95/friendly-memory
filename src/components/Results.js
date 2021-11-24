@@ -30,7 +30,7 @@ class Results extends Component {
               </Label>
             )}
             <h2>{question.optionOne.text}</h2>
-            <h3>{`${optionTwoVotes} out of ${totalVotes} votes`} %</h3>
+            <h3>{`${optionTwoVotes} out of ${totalVotes} votes`}</h3>
             <h2>{((optionTwoVotes / totalVotes) * 100).toFixed(0)} %</h2>
           </Segment>
         </Segment>
