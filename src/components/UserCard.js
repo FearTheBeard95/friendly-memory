@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image } from 'semantic-ui-react';
 import { Card } from 'semantic-ui-react';
-import logo from '../logo.svg';
 import Content from './Content';
 
 class UserCard extends Component {

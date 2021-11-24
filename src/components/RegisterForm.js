@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Form, Segment } from 'semantic-ui-react';
 import { handleCreateUser } from '../actions/users';
-import { setAuthUser } from '../actions/authUser';
-import { handleReceiveData } from '../actions/shared';
 
 export class RegisterForm extends Component {
   state = {

@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-  Divider,
-  Segment,
-  Progress,
-  Label,
-  Image,
-  Statistic,
-  Icon,
-} from 'semantic-ui-react';
+import { Divider, Segment, Label } from 'semantic-ui-react';
 
 class Results extends Component {
   render() {

@@ -1,7 +1,6 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Divider, List, Segment, Tab } from 'semantic-ui-react';
-import { handleReceiveData } from '../actions/shared';
 import UserCard from './UserCard';
 
 class HomePage extends Component {
@@ -56,12 +55,12 @@ class HomePage extends Component {
 function mapStateToProps({ questions, users, authUser }) {
   const answered = Object.keys(users[authUser].answers);
   return {
-    unanswered: Object.values(questions).filter(
-      (question) => !answered.includes(question.id)
-    ),
-    answered: Object.values(questions).filter((question) =>
-      answered.includes(question.id)
-    ),
+    unanswered: Object.values(questions)
+      .filter((question) => !answered.includes(question.id))
+      .sort((a, b) => b.timestamp - a.timestamp),
+    answered: Object.values(questions)
+      .filter((question) => answered.includes(question.id))
+      .sort((a, b) => b.timestamp - a.timestamp),
   };
 }
 

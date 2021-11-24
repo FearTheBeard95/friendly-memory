@@ -4,6 +4,7 @@ import { setAuthUser } from './authUser';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
 export const CREATE_USER = 'CREATE_USER';
 export const SAVE_ANSWER = 'SAVE_ANSWER';
+export const SAVE_QUESTION = 'SAVE_QUESTION';
 
 export function receiveUsers(users) {
   return {
@@ -15,6 +16,13 @@ export function receiveUsers(users) {
 function createUser(users) {
   return {
     type: CREATE_USER,
+    users,
+  };
+}
+
+export function saveUserQuestion(users) {
+  return {
+    type: SAVE_QUESTION,
     users,
   };
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Divider, Grid, Icon, Segment, Button } from 'semantic-ui-react';
+import { Divider, Segment } from 'semantic-ui-react';
 
 class Teaser extends Component {
   render() {

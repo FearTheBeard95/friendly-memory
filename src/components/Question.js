@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Divider, Grid, Icon, Segment, Button } from 'semantic-ui-react';
+import { Divider, Icon, Segment, Button } from 'semantic-ui-react';
 
 class Question extends Component {
   state = {
