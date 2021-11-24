@@ -83,7 +83,7 @@ class Content extends Component {
               <Button
                 color='twitter'
                 as={NavLink}
-                to={`/question/${question.id}`}
+                to={`/questions/${question.id}`}
               >
                 View
               </Button>

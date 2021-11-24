@@ -17,7 +17,7 @@ class LeaderBoard extends Component {
       <Segment>
         <h1>Champions</h1>
         {leaders.map((leader, index) => (
-          <Leader champion={leader} color={color[index]} />
+          <Leader key={leader.id} champion={leader} color={color[index]} />
         ))}
       </Segment>
     );

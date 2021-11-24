@@ -36,7 +36,7 @@ class App extends Component {
                 <Route exact path='/' component={HomePage} />
                 <Route path='/add' component={NewPoll} />
                 <Route path='/leaderboard' component={LeaderBoard} />
-                <Route path='/question/:id' component={PollQuestion} />
+                <Route path='/questions/:id' component={PollQuestion} />
                 <Route path='/pollresult/:id' component={PollResult} />
                 <Route component={NotFound} />
               </Switch>
