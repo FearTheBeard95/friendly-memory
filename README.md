@@ -28,7 +28,7 @@ This method creates and saves a new user to the backend.
 
 ## Installation
 
-1. Clone project to your computer using the command git clone https://github.com/FearTheBeard95/myReadApp-udacity-project1.git
+1. Clone project to your computer using the command git clone https://github.com/FearTheBeard95/friendly-memory.git
 2. Open your terminal application and go to the directory where the project was cloned and run the following commands
       1. `npm install` to install all the necessary dependencies required to run the app (Requires internet)
       2. `npm run start` to run the application
