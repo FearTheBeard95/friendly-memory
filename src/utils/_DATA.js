@@ -169,7 +169,7 @@ export function _saveQuestion(question) {
         },
       };
 
-      res({ users, questions });
+      res(formattedQuestion);
     }, 1000);
   });
 }
@@ -199,7 +199,7 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
         },
       };
 
-      res({ users, questions });
+      res();
     }, 500);
   });
 }

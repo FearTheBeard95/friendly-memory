@@ -1,10 +1,11 @@
-import { saveUser } from '../utils/api';
+import { saveUser, saveAnswer } from '../utils/api';
 import { setAuthUser } from './authUser';
+import { saveQuestionAnswer } from './questions';
 
 export const RECEIVE_USERS = 'RECEIVE_USERS';
 export const CREATE_USER = 'CREATE_USER';
-export const SAVE_ANSWER = 'SAVE_ANSWER';
-export const SAVE_QUESTION = 'SAVE_QUESTION';
+export const ADD_ANSWER_TO_USER = 'ADD_ANSWER_TO_USER';
+export const ADD_QUESTION_TO_USER = 'ADD_QUESTION_TO_USER';
 
 export function receiveUsers(users) {
   return {
@@ -20,17 +21,32 @@ function createUser(users) {
   };
 }
 
-export function saveUserQuestion(users) {
+export function saveUserQuestion({ id, author }) {
   return {
-    type: SAVE_QUESTION,
-    users,
+    type: ADD_QUESTION_TO_USER,
+    id,
+    author,
   };
 }
 
-export function saveUserAnswer(users) {
+function saveUserAnswer(authUser, qid, answer) {
   return {
-    type: SAVE_ANSWER,
-    users,
+    type: ADD_ANSWER_TO_USER,
+    authUser,
+    qid,
+    answer,
+  };
+}
+
+export function handleSaveAnswer(authUser, qid, answer) {
+  return (dispatch) => {
+    dispatch(saveUserAnswer(authUser, qid, answer));
+    dispatch(saveQuestionAnswer(authUser, qid, answer));
+    return saveAnswer({
+      authedUser: authUser,
+      qid,
+      answer,
+    }).then(() => {});
   };
 }
 

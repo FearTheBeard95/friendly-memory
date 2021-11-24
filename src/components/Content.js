@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink, Redirect } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 import Question from './Question';
-import { handleSaveAnswer } from '../actions/shared';
+import { handleSaveAnswer } from '../actions/users';
 import Teaser from './Teaser';
 import Results from './Results';
 import { connect } from 'react-redux';
@@ -23,21 +23,9 @@ class Content extends Component {
     const { authUser, question } = this.props;
     console.log(this.props);
     if (this.state.answer === 'optionOne') {
-      this.props.dispatch(
-        handleSaveAnswer({
-          authedUser: authUser,
-          qid: question.id,
-          answer: 'optionOne',
-        })
-      );
+      this.props.dispatch(handleSaveAnswer(authUser, question.id, 'optionOne'));
     } else {
-      this.props.dispatch(
-        handleSaveAnswer({
-          authedUser: authUser,
-          qid: question.id,
-          answer: 'optionTwo',
-        })
-      );
+      this.props.dispatch(handleSaveAnswer(authUser, question.id, 'optionTwo'));
     }
 
     this.setState({

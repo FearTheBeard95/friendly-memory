@@ -11,6 +11,8 @@ import HomePage from './Home';
 import { Divider } from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NewPoll from './NewPoll';
+import LeaderBoard from './LeaderBoard';
+import NotFound from './NotFound';
 
 class App extends Component {
   componentDidMount() {
@@ -33,9 +35,10 @@ class App extends Component {
               <Switch>
                 <Route exact path='/' component={HomePage} />
                 <Route path='/add' component={NewPoll} />
-                <Route path='/leaderboard' />
+                <Route path='/leaderboard' component={LeaderBoard} />
                 <Route path='/question/:id' component={PollQuestion} />
                 <Route path='/pollresult/:id' component={PollResult} />
+                <Route component={NotFound} />
               </Switch>
             </div>
           )}

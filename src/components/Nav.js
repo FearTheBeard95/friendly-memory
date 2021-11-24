@@ -36,11 +36,11 @@ class Nav extends Component {
             to='/add'
           />
           <Menu.Item
-            name='leaderboards'
-            active={activeItem === 'leaderboards'}
+            name='leaderboard'
+            active={activeItem === 'leaderboard'}
             onClick={this.handleItemClick}
             as={NavLink}
-            to='/leaderboards'
+            to='/leaderboard'
           />
           <Menu.Menu position='right'>
             <Menu.Item name='logout'>

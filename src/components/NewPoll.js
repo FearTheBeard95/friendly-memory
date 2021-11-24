@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { Button, Divider, Form, Segment } from 'semantic-ui-react';
-import { handleSaveQuestion } from '../actions/shared';
+import { handleSaveQuestion } from '../actions/questions';
+import { showLoading, hideLoading } from 'react-redux-loading-bar';
 
 class NewPoll extends Component {
   state = {
@@ -36,17 +37,19 @@ class NewPoll extends Component {
     const { question1, question2 } = this.state;
 
     //dispatch to an add poll action
-    dispatch(
-      handleSaveQuestion({
-        author: authUser,
-        optionOneText: question1,
-        optionTwoText: question2,
-      })
-    );
-    this.setState({
-      question1: '',
-      question2: '',
-      redirect: true,
+    new Promise((res, rej) => {
+      dispatch(showLoading());
+      dispatch(handleSaveQuestion(question1, question2, authUser));
+      setTimeout(() => res('success'), 1000);
+    }).then(() => {
+      this.setState({
+        option1: '',
+        option2: '',
+      });
+      dispatch(hideLoading());
+      this.setState({
+        redirect: true,
+      });
     });
   };
 
@@ -78,11 +81,12 @@ class NewPoll extends Component {
                 value={question2}
               />
             </Form.Field>
-            <Button type='submit' color='twitter'>
+            <Button
+              type='submit'
+              color='twitter'
+              disabled={question1 === '' || question2 === ''}
+            >
               Submit
-            </Button>
-            <Button type='submit' color='twitter'>
-              Cancel
             </Button>
           </Form>
         </Segment>
