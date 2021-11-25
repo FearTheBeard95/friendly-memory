@@ -35,20 +35,26 @@ function mapStateToProps({ authUser, users, questions }, { match, poll }) {
   let question;
   let author;
   let notFound = false;
+  let type;
   if (poll !== undefined) {
     question = questions[poll];
     author = users[question.author];
   } else {
-    const { id } = match.params;
-    question = questions[id];
-
+    const { question_id } = match.params;
+    question = questions[question_id];
+    type = 'Question';
     if (question === undefined) {
       notFound = true;
     } else {
       author = users[question.author];
+
+      if (Object.keys(users[authUser].answers).includes(question.id)) {
+        type = 'Result';
+      }
     }
   }
   return {
+    type,
     question,
     author,
     authUser,

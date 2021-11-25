@@ -19,7 +19,7 @@ class HomePage extends Component {
               <List verticalAlign='middle'>
                 {unanswered.map((poll) => (
                   <List.Item key={poll.id}>
-                    <UserCard poll={poll.id} type='Tease' teaser={true} />
+                    <UserCard poll={poll.id} />
                     <Divider />
                   </List.Item>
                 ))}
@@ -38,7 +38,7 @@ class HomePage extends Component {
               <List>
                 {answered.map((poll) => (
                   <List.Item key={poll.id}>
-                    <UserCard poll={poll.id} type='Teaser' answered={true} />
+                    <UserCard poll={poll.id} />
                     <Divider />
                   </List.Item>
                 ))}

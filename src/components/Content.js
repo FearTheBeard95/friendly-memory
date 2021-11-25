@@ -39,7 +39,7 @@ class Content extends Component {
     switch (type) {
       case 'Question':
         if (redirect) {
-          return <Redirect to={`/pollresult/${question.id}`} />;
+          return <Redirect to={`/questions/${question.id}`} />;
         }
         return (
           <div>
@@ -75,7 +75,7 @@ class Content extends Component {
               <Button
                 color='twitter'
                 as={NavLink}
-                to={`/pollresult/${question.id}`}
+                to={`/questions/${question.id}`}
               >
                 Result
               </Button>

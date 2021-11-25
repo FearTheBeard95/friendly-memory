@@ -5,8 +5,7 @@ import { handleReceiveData } from '../actions/shared';
 import LoadingBar from 'react-redux-loading-bar';
 import Login from './Login';
 import Nav from './Nav';
-import PollQuestion from './PollQuestion';
-import PollResult from './PollResult';
+import UserCard from './UserCard';
 import HomePage from './Home';
 import { Divider } from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -36,8 +35,7 @@ class App extends Component {
                 <Route exact path='/' component={HomePage} />
                 <Route path='/add' component={NewPoll} />
                 <Route path='/leaderboard' component={LeaderBoard} />
-                <Route path='/questions/:id' component={PollQuestion} />
-                <Route path='/pollresult/:id' component={PollResult} />
+                <Route path='/questions/:question_id' component={UserCard} />
                 <Route component={NotFound} />
               </Switch>
             </div>
