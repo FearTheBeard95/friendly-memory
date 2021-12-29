@@ -2,8 +2,6 @@
 
 ## Description
 
-This a bookshelf application that organizes the user's books into shelves which are the books you are currently reading, you have read and want to read. The application is written in React.js and uses an API for books provided by udacity.
-
 This is an application that allows users to answer would you rather questions, it also give the users the ability to create to polls that other users can then answer. It shows the results of each polls after the user answers a poll and displays a leaderboard to show who the champion of ask and answering polls is. The application was created using React.js and Redux.
 
 ## Backend used
